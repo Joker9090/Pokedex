@@ -1,0 +1,1 @@
+export const SET_ANYTHING = "SET_ANYTHING";
