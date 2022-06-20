@@ -24,7 +24,7 @@ const Home: NextPage = (props: any) => {
 
   return (
     <div className={styles.container}>
-      <main className={styles.main}>
+      <main cy="TEST" className={styles.main}>
         {anything}
       </main>
     </div>

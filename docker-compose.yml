@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  pookedex:
+    container_name: pookedex
+    build:
+      context: ./.
+      dockerfile: Dockerfile.dev
+    networks:
+      - default
+    volumes:
+      - "./.:/app/."
+      - "/app/node_modules"
+    ports:
+      - "3000:3000"
+    command: npm run dev
+    
+    environment:
+      - DEBUG=1
+      - NODE_ENV=development
+      - PORT=3000
+      - NEXT_PUBLIC_API_URI=https://pokeapi.co/api/v2/
