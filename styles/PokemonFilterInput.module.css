@@ -1,0 +1,115 @@
+.PokemonFilter {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.PokemonFilterTitle {
+  margin: 0px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid black;
+  border-top-left-radius: 33px;
+  border-bottom: transparent;
+}
+
+.PokemonFilterBox {
+  display: flex;
+  width: 100%;
+}
+.PokemonFilterSeparatorA {
+  width: 75%;
+  display: flex;
+}
+.PokemonFilterSeparatorB {
+  width: 25%;
+}
+
+.PokemonFilterSelectorBox {
+  height: 100%;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 22px;
+  font-weight: bold;
+  border: 1px solid black;
+  border-bottom: transparent;
+}
+.PokemonFilterSelectorBoxItem {
+  border-bottom: 1px solid black;
+  width: 100%;
+  height: 50%;
+  cursor: pointer;
+  text-align: center;
+}
+.PokemonFilterSelectorBoxItemActive {
+  border-bottom: 1px solid black;
+  background-color: yellow;
+  width: 100%;
+  height: 50%;
+  cursor: pointer;
+  text-align: center;
+}
+
+.PokemonFilterSelectorOption {
+  height: 100%;
+  width: calc(100% - 30px);
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  align-items: center;
+  display: flex;
+  padding: 0 5%;
+}
+.PokemonFilterQuery {
+  display: flex;
+  width: 100%;
+  justify-content: left;
+}
+
+.PokemonFilterQuery label {
+  width: 80px;
+}
+.PokemonFilterQuery input {
+  width: calc(100% - 80px);
+}
+
+.PokemonFilterLetter {
+  display: flex;
+  width: 100%;
+  justify-content: left;
+}
+
+.PokemonFilterLetter label {
+  width: 80px;
+}
+.PokemonFilterLetter input {
+  width: 40px;
+}
+.PokemonFilterType {
+  text-align: center;
+  border-top: 1px solid black;
+}
+.PokemonFilterTypeItem {
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  cursor: pointer;
+}
+.PokemonFilterTypeItemActive {
+  background-color: yellow;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  cursor: pointer;
+}
+.PokemonFilterLetterItemActive {
+  text-align: center;
+  color: white;
+}
+.PokemonFilterLetterItem {
+  cursor: pointer;
+  text-align: center;
+  color: black;
+}

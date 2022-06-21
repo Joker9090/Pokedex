@@ -1,0 +1,85 @@
+.PokemonDetailContent {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.PokemonDetailContentNavBar {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.overflowHidden {
+  overflow: hidden;
+}
+.PokemonDetailContentNavBar span {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.PokemonDetailContentImageBox {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-color: white;
+  border-bottom: 2px solid black;
+  justify-content: center;
+  align-items: baseline;
+  display: flex;
+}
+.PokemonDetailContentImageBox img {
+  width: 60%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
+}
+.PokemonDetailContentFormShow {
+  padding-top: 30px;
+  padding-bottom: 30px;  
+  height: calc(86vh - 200px);
+  overflow-y: auto; 
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.PokemonDetailContentFormCreate {
+  padding-top: 30px;
+  height: calc(86vh - 200px);
+  overflow-y: auto; 
+}
+.PropertyItem {
+  margin: auto;
+  display: flex;
+  width: 400px;
+  max-width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.PropertyItemKey {
+}
+.PropertyItemValue {
+}
+.PropertyItemCreate {
+  margin: auto;
+  display: flex;
+  width: 400px;
+  max-width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0px;
+}
+input.PropertyItemValueCreate {
+  background: transparent;
+  text-align: center;
+  color: white;
+  box-shadow: none;
+  border: none;
+  border-bottom: 1px solid white;
+  height: 24px;
+  font-size: 24px;
+  width: 150px;
+}
+.CreatePokemonForm {
+
+}

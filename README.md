@@ -9,6 +9,7 @@ This is a Pokedex Challenge
 - Cypress
 - styled
 - Docker
+- iconmoon
 
 ## linter
 There is a eslinter config for a pretty code =)
@@ -49,7 +50,8 @@ docker-compose up -d --build
 
 ## Learn More
 
-- Time-Spent = 4,5 hours
+- Time-Spent = 14 hours
 - Time-Spent-pretends = 12 hours
 
-
+## TO IMPROVE
+INPROVE typecript validation in root Reducer when actions.payload is readed

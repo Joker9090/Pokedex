@@ -1,0 +1,27 @@
+.PokemonMainContent {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  max-height: 86vh;
+  overflow-y: auto;
+}
+.LoadingScreen{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 86vh;
+  animation: bouncing 1.5s ease-in-out infinite;
+}
+@keyframes bouncing {
+  0% {
+    transform: scale(1) rotate(0deg);    
+  }
+  75% {
+    transform: scale(1.1) rotate(-12deg);      
+  }
+  100% {
+    transform: scale(1) rotate(0deg);      
+  }
+}

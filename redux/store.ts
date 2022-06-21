@@ -7,4 +7,4 @@ const middleware = [thunk]
 
 const makeStore = () => createStore(rootReducer, compose(applyMiddleware(...middleware)))
 
-export const wrapper = createWrapper(makeStore)
+export const wrapper = createWrapper(makeStore);
