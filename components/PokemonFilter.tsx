@@ -101,6 +101,7 @@ export const PokemonFilterQuery = ({ query, setQuery }: any) => {
     <div className={styles.PokemonFilterQuery}>
       <label>Search</label>
       <input
+        data-cy-test="cy-PokemonFilterQuery-input"
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}>

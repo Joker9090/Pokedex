@@ -3,12 +3,13 @@
 // If you're using ESLint on your project, we recommend installing the ESLint Cypress plugin instead:
 // https://github.com/cypress-io/eslint-plugin-cypress
 
-describe('Navigation', () => {
-  it('should navigate to the !', () => {
+describe('DetailView', () => {
+  it('Detail Page should have bulbasaur information', () => {
     // Start from the index page
-    cy.visit('http://localhost:3000/')
+    cy.visit('http://localhost:3000/bulbasaur')
 
-    // The new page should contain an cy="TEST" with "!"
-    cy.get('[cy="TEST"]').contains('!')
+    cy.get('[data-cy-test="cy-PropertyItem-Name"]').contains('bulbasaur');
+      
   })
+
 })

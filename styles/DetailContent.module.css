@@ -132,3 +132,10 @@ input.PropertyItemValueCreate {
   flex-direction: column;
   height: 72vh;
 }
+
+@media screen and (max-width: 768px) {
+  .PropertyItemCreate {
+    width: 90%;
+    margin: auto
+  }
+}

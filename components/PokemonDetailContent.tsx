@@ -34,7 +34,7 @@ export const PokemonDetailContent = ({ pokemon, createPokemonLocal, removePokemo
       <div className={`${styles.PokemonDetailContentImageBox} ${!pokemon ? styles.overflowHidden : ''}`}>
         <div className={styles.PokemonDetailContentNavBar}>
           <Link href={`/`}>
-            <span className="icon-arrow-left2" />
+            <span className="icon-arrow-left2" data-cy-test={`cy-PokemonDetailContent-back`}/>
           </Link>
         </div>
         {pokemon ? (
@@ -131,7 +131,7 @@ export const PropertyItemCreateStatsList = ({ label, value, onChange }: { label:
       <label className={styles.PropertyItemKey}>{label}</label>
       <div className={styles.PropertyItemCreateList}>
         {value.map((v, index) => (
-          <div key={`v-${label}-${index}`} className={styles.PropertyItemCreateListItem}>
+          <div key={`v-${label}-${index}`} className={styles.PropertyItemCreateListItem} data-cy-test={`cy-PropertyItemCreateStatsList`}>
             <input
               className={styles.PropertyItemValueCreate}
               type="text"
@@ -147,7 +147,7 @@ export const PropertyItemCreateStatsList = ({ label, value, onChange }: { label:
             <div className={styles.PropertyRemoveListItem} onClick={() => removeNewItem(index)}><span className="icon-minus" /></div>
           </div>
         ))}
-        <div className={styles.PropertyAddListItem} onClick={addNewItem}><span className="icon-plus" /></div>
+        <div className={styles.PropertyAddListItem} onClick={addNewItem}><span className="icon-plus" data-cy-test={`cy-PropertyItemCreateStatsList-add`} /></div>
       </div>
 
     </div>
@@ -172,7 +172,7 @@ export const PropertyItemCreateList = ({ label, value, onChange }: { label: stri
   return (
     <div className={styles.PropertyItemCreate}>
       <label className={styles.PropertyItemKey}>{label}</label>
-      <div className={styles.PropertyItemCreateList}>
+      <div className={styles.PropertyItemCreateList} data-cy-test={`cy-PropertyItemCreateList-${label}`}>
         {value.map((v, index) => (
           <div key={`v-${label}-${index}`} className={styles.PropertyItemCreateListItem}>
             <input
@@ -184,7 +184,7 @@ export const PropertyItemCreateList = ({ label, value, onChange }: { label: stri
             <div className={styles.PropertyRemoveListItem} onClick={() => removeNewItem(index)}><span className="icon-minus" /></div>
           </div>
         ))}
-        <div className={styles.PropertyAddListItem} onClick={addNewItem}><span className="icon-plus" /></div>
+        <div className={styles.PropertyAddListItem} onClick={addNewItem}><span className="icon-plus" data-cy-test={`cy-PropertyItemCreateList-${label}-add`} /></div>
       </div>
     </div>
   )
@@ -198,6 +198,7 @@ export const PropertyItemCreateName = ({ label, value, onChange }: { label: stri
         className={styles.PropertyItemValueCreate}
         type="text"
         value={value}
+        data-cy-test={`cy-PropertyItemCreateName`}
         onChange={(e) => onChange(e.target.value)}>
       </input>
     </div>
@@ -208,7 +209,7 @@ export const PropertyItem = ({ label, value }: { label: string, value: string })
   return (
     <div className={styles.PropertyItem}>
       <div className={styles.PropertyItemKey}><p>{label}</p></div>
-      <div className={styles.PropertyItemValue}><p>{value}</p></div>
+      <div className={styles.PropertyItemValue}><p data-cy-test={`cy-PropertyItem-${label}`}>{value}</p></div>
     </div>
   )
 }

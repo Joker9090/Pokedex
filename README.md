@@ -2,7 +2,7 @@ This is a Pokedex Challenge
 ( Barto's Solution )
 
 ## Demo link 
-[Demo]
+[Demo](https://pokedex-beryl-nine.vercel.app/)
 
 ## Stack
 - node 16.13.1
@@ -18,11 +18,8 @@ This is a Pokedex Challenge
 ## linter
 There is a eslinter config for a pretty code =)
 
-## Docker config
-(pending)
-
 ## requirements
-- Docker (pending)
+- Docker
 - nvm
 - yarn
 
@@ -60,7 +57,7 @@ NEXT_PUBLIC_IMAGES_URI=
 ```
 
 ## TO IMPROVE
-- INPROVE typecript validation in root Reducer when actions.payload is readed
+- improve typecript validation in root Reducer when actions.payload is readed
 - Props Drillin in FilterObject
 - scss instead of basic css for better in-box-css
 - more test cases
@@ -68,8 +65,9 @@ NEXT_PUBLIC_IMAGES_URI=
 - Save Local Data in session Storage
 - shimmers on loading
 - infinite scroll or pagination
+- form validations in create
+
 
 ## Learn More
-
-- Time-Spent = 14 hours
+- Time-Spent = 16 hours
 - Time-Spent-pretends = 12 hours
