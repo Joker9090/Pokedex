@@ -4,6 +4,10 @@ This is a Pokedex Challenge
 ## Demo link 
 [Demo](https://pokedex-beryl-nine.vercel.app/)
 
+
+## Concept Diagram
+![DiagramImage](https://github.com/Joker9090/Pokedex/blob/main/public/images/diagram.png?raw=true)
+
 ## Stack
 - node 16.13.1
 - Next
@@ -24,6 +28,7 @@ There is a eslinter config for a pretty code =)
 - yarn
 
 ## Testing
+![TestImage](https://github.com/Joker9090/Pokedex/blob/main/public/images/tests.png?raw=true)
 There is a Cypress implementation
 the test files are located in cypress/integration folder
 
