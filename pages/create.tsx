@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css';
 import { connect } from "react-redux"
-import { createPokemonLocal, getPokemons } from "../redux/actions/main"
+import { createPokemonLocal, getPokemons, removePokemonLocal } from "../redux/actions/main"
 import { TPokemonReducer } from '../redux/reducers/main'
 import Header from '../components/globals/Header'
 import { PokemonDetailContent } from '../components/PokemonDetailContent';
@@ -21,6 +21,7 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = {
   createPokemonLocal,
+  removePokemonLocal,
   getPokemons,
 }
 
@@ -31,7 +32,7 @@ const Home = (props: CreateProps) => {
     <div className={styles.container}>
       <Header />
       <main className={styles.main}>
-        <PokemonDetailContent pokemon={null} createPokemonLocal={createPokemonLocal} />
+        <PokemonDetailContent pokemon={null} removePokemonLocal={null} createPokemonLocal={createPokemonLocal} />
       </main>
     </div>
   )

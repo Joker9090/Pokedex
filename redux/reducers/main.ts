@@ -71,7 +71,6 @@ const PokemonReducerState: TPokemonReducer = {
 const applyFilter = (state: TPokemonReducer, filterConfig: FilterObject | null, pokemonList: TPokemonLight[]) => {
   let _filterConfig = filterConfig || state.filter;
   const pokemons: TPokemonLight[] = pokemonList.filter((p) => {
-    console.log("pp",p);
     let returned = true;
     if (_filterConfig.query != "" && p.name.toLowerCase().indexOf(_filterConfig.query?.toLowerCase()) == -1) returned = false;
     if (_filterConfig.type != POKEMON_NET_TYPE.ALL && p.type != _filterConfig.type) returned = false;
@@ -91,7 +90,6 @@ const createTPokemonLight = (pokemon: TPokemon): TPokemonLight => {
 
 const main = (state = PokemonReducerState, action: any) => {
   // TODO: INPROVE TYPES HERE action.payload
-  console.log("action.type", action.type, action.payload);
   switch (action.type) {
     case t.SET_TAB: 
       return {
@@ -125,7 +123,6 @@ const main = (state = PokemonReducerState, action: any) => {
     case t.POKEMON_LOCAL_ADD:
       let newValues = [...state.pokemonsLocal];
       newValues.push(action.payload);
-      console.log("newValues", newValues);
       return {
         ...state,
         pokemonsLocal: newValues

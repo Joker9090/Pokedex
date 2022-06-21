@@ -5,11 +5,11 @@ import { POKEMON_NET_TYPE, TPokemon, TStat } from '../redux/reducers/main';
 import styles from '../styles/DetailContent.module.css';
 import { PokemonsAddLocalBtnConnected } from './PokemonsAddLocalBtn';
 
-export const PokemonDetailContent = ({ pokemon, createPokemonLocal }: { pokemon: TPokemon | null, createPokemonLocal: any | null }) => {
+export const PokemonDetailContent = ({ pokemon, createPokemonLocal, removePokemonLocal }: { pokemon: TPokemon | null, createPokemonLocal: any | null, removePokemonLocal: any | null }) => {
   const router = useRouter();
   const [localPokemonData, setLocalPokemonData] = React.useState<TPokemon>({
     id: "Local-",
-    name: "",
+    name: "new-pokemon",
     type: POKEMON_NET_TYPE.LOCAL,
     image: "/images/pokeball.png",
     stats: [],
@@ -18,20 +18,23 @@ export const PokemonDetailContent = ({ pokemon, createPokemonLocal }: { pokemon:
   });
 
   const createPokemon = () => {
-    if(createPokemonLocal) { 
+    if (createPokemonLocal) {
       createPokemonLocal(localPokemonData);
       router.push("/");
     };
-
+  }
+  const removePokemon = () => {
+    if (removePokemonLocal) {
+      removePokemonLocal(pokemon?.id);
+      router.push("/");
+    };
   }
   return (
     <div className={styles.PokemonDetailContent}>
       <div className={`${styles.PokemonDetailContentImageBox} ${!pokemon ? styles.overflowHidden : ''}`}>
         <div className={styles.PokemonDetailContentNavBar}>
           <Link href={`/`}>
-            <span>
-              Back
-            </span>
+            <span className="icon-arrow-left2" />
           </Link>
         </div>
         {pokemon ? (
@@ -48,6 +51,9 @@ export const PokemonDetailContent = ({ pokemon, createPokemonLocal }: { pokemon:
           ))}
           <PropertyItem label={"Types"} value={pokemon.types.join(",")} />
           <PropertyItem label={"Abilities"} value={pokemon.abilities.join(",")} />
+          {(pokemon.type == POKEMON_NET_TYPE.LOCAL && removePokemonLocal && (
+            <PokemonsAddLocalBtnConnected value={`Remove ${pokemon.name}`} onClick={removePokemon} />
+          ))}
         </div>
       ) : (
         <div className={styles.PokemonDetailContentFormCreate}>
@@ -98,7 +104,7 @@ export const CreatePokemonForm = ({ onClick, localPokemonData, setLocalPokemonDa
       <PropertyItemCreateList label={"Abilities"} key="abilities" value={localPokemonData.abilities} onChange={changeAbilityProperty} />
       <PropertyItemCreateList label={"Types"} key="types" value={localPokemonData.types} onChange={changeTypeProperty} />
       <PropertyItemCreateStatsList label={"Stats"} key="stats" value={localPokemonData.stats} onChange={changeStatsProperty} />
-      
+
       <PokemonsAddLocalBtnConnected value={"Create"} onClick={onClick} />
     </div>
   )
@@ -113,34 +119,37 @@ export const PropertyItemCreateStatsList = ({ label, value, onChange }: { label:
   }
   const addNewItem = () => {
     let newValues = [...value];
-    newValues.push({ value: 0, name: "" });
-    onChange([...newValues])
+    newValues.push({ value: 0, name: `new-${label}` });
+    onChange([...newValues]);
   }
   const removeNewItem = (i: number) => {
     let newValues = [...value].filter((v, index) => index != i);
-    onChange([...newValues])
+    onChange([...newValues]);
   }
   return (
     <div className={styles.PropertyItemCreate}>
       <label className={styles.PropertyItemKey}>{label}</label>
-      {value.map((v, index) => (
-        <div key={`v-${label}-${index}`} className={styles.PropertyItemCreateList}>
-          <div className={styles.PropertyRemoveListItem} onClick={() => removeNewItem(index)}><span className="icon-minus" /></div>
-          <input
-            className={styles.PropertyItemValueCreate}
-            type="text"
-            value={v.name}
-            onChange={(e) => changeIndexed(index, { name: e.target.value, value: v.value })}>
-          </input>
-          <input
-            className={styles.PropertyItemValueCreate}
-            type="number"
-            value={v.value}
-            onChange={(e) => changeIndexed(index, { value: Number(e.target.value), name: v.name })}>
-          </input>
-        </div>
-      ))}
-      <div className={styles.PropertyAddListItem} onClick={addNewItem}><span className="icon-plus" /></div>
+      <div className={styles.PropertyItemCreateList}>
+        {value.map((v, index) => (
+          <div key={`v-${label}-${index}`} className={styles.PropertyItemCreateListItem}>
+            <input
+              className={styles.PropertyItemValueCreate}
+              type="text"
+              value={v.name}
+              onChange={(e) => changeIndexed(index, { name: e.target.value, value: v.value })}>
+            </input>
+            <input
+              className={styles.PropertyItemValueCreate}
+              type="number"
+              value={v.value}
+              onChange={(e) => changeIndexed(index, { value: Number(e.target.value), name: v.name })}>
+            </input>
+            <div className={styles.PropertyRemoveListItem} onClick={() => removeNewItem(index)}><span className="icon-minus" /></div>
+          </div>
+        ))}
+        <div className={styles.PropertyAddListItem} onClick={addNewItem}><span className="icon-plus" /></div>
+      </div>
+
     </div>
   )
 }
@@ -153,28 +162,30 @@ export const PropertyItemCreateList = ({ label, value, onChange }: { label: stri
   }
   const addNewItem = () => {
     let newValues = [...value];
-    newValues.push("")
+    newValues.push(`new-${label}`);
     onChange([...newValues])
   }
   const removeNewItem = (i: number) => {
     let newValues = [...value].filter((v, index) => index != i);
-    onChange([...newValues])
+    onChange([...newValues]);
   }
   return (
     <div className={styles.PropertyItemCreate}>
       <label className={styles.PropertyItemKey}>{label}</label>
-      {value.map((v, index) => (
-        <div key={`v-${label}-${index}`} className={styles.PropertyItemCreateList}>
-          <div className={styles.PropertyRemoveListItem} onClick={() => removeNewItem(index)}><span className="icon-minus" /></div>
-          <input
-            className={styles.PropertyItemValueCreate}
-            type="text"
-            value={v}
-            onChange={(e) => changeIndexed(index, e.target.value)}>
-          </input>
-        </div>
-      ))}
-      <div className={styles.PropertyAddListItem} onClick={addNewItem}><span className="icon-plus" /></div>
+      <div className={styles.PropertyItemCreateList}>
+        {value.map((v, index) => (
+          <div key={`v-${label}-${index}`} className={styles.PropertyItemCreateListItem}>
+            <input
+              className={styles.PropertyItemValueCreate}
+              type="text"
+              value={v}
+              onChange={(e) => changeIndexed(index, e.target.value)}>
+            </input>
+            <div className={styles.PropertyRemoveListItem} onClick={() => removeNewItem(index)}><span className="icon-minus" /></div>
+          </div>
+        ))}
+        <div className={styles.PropertyAddListItem} onClick={addNewItem}><span className="icon-plus" /></div>
+      </div>
     </div>
   )
 }

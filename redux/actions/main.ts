@@ -60,7 +60,7 @@ export const hidratePokemons = () => (dispatch: any) => {
     });
   }).catch((error: any) => {
     dispatch({ type: t.POKEMONS_FETCH_ERROR });
-    console.log("error", error);
+    console.error("hidratePokemons error", error);
   })
 }
 
@@ -75,7 +75,7 @@ export const hidratePokemon = (pokeName: string) => (dispatch: any) => {
     return parsedPokemon;
   }).catch((error: any) => {
     dispatch({ type: t.POKEMON_FETCH_ERROR });
-    console.log("error", error);
+    console.error("hidratePokemon error", error);
     return null;
   })
 }
@@ -87,10 +87,10 @@ export const createPokemonLocal = (pokemon: TPokemon) => (dispatch: any) => {
   });
 }
 
-export const removePokemonLocal = (pokemonName: string) => (dispatch: any) => {
+export const removePokemonLocal = (pokemonId: string) => (dispatch: any) => {
   dispatch({
     type: t.POKEMON_LOCAL_REMOVE,
-    payload: pokemonName
+    payload: pokemonId
   });
 }
 

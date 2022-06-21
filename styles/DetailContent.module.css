@@ -18,6 +18,12 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  font-size: 20px;
+  transition: all 0.2s ease;
+  width: 30px;
+}
+.PokemonDetailContentNavBar:hover span {
+  color: orange;
 }
 .PokemonDetailContentImageBox {
   position: relative;
@@ -37,16 +43,16 @@
 }
 .PokemonDetailContentFormShow {
   padding-top: 30px;
-  padding-bottom: 30px;  
+  padding-bottom: 30px;
   height: calc(86vh - 200px);
-  overflow-y: auto; 
+  overflow-y: auto;
   padding-left: 10px;
   padding-right: 10px;
 }
 .PokemonDetailContentFormCreate {
   padding-top: 30px;
   height: calc(86vh - 200px);
-  overflow-y: auto; 
+  overflow-y: auto;
 }
 .PropertyItem {
   margin: auto;
@@ -68,6 +74,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 0px;
+  border-top: 1px #dfdfdf;
+  border-top-style: dashed;
 }
 input.PropertyItemValueCreate {
   background: transparent;
@@ -77,9 +85,50 @@ input.PropertyItemValueCreate {
   border: none;
   border-bottom: 1px solid white;
   height: 24px;
-  font-size: 24px;
+  font-size: 20px;
   width: 150px;
 }
-.CreatePokemonForm {
+.PropertyAddListItem {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+  padding: 5px;
+  width: 28px;
+}
+.PropertyAddListItem:hover {
+  color: #00ff7f;
+}
 
+.PropertyRemoveListItem {
+  width: 28px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+  padding: 5px;
+}
+.PropertyRemoveListItem:hover {
+  color: #f7446c;
+}
+.PropertyItemCreateList {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.PropertyItemCreateListItem {
+  display: flex;
+  margin-bottom: 10px;
+}
+.PropertyItemCreateListItem input {
+  height: 30px;
+  font-size: 20px;
+  margin-right: 20px;
+}
+.PropertyItemCreateListItem input:nth-child(2) {
+  width: 80px;
+  text-align: center;
+}
+.CreatePokemonForm {
+  display: flex;
+  flex-direction: column;
+  height: 72vh;
 }

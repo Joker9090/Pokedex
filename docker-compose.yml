@@ -20,3 +20,4 @@ services:
       - NODE_ENV=development
       - PORT=3000
       - NEXT_PUBLIC_API_URI=https://pokeapi.co/api/v2/
+      - NEXT_PUBLIC_IMAGES_URI=https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/

@@ -49,7 +49,6 @@ const Home = (props: HomeProps) => {
   const { filter, pokemonsServerStatus, setQuery, setLetter, tab, setType, pokemons, setTab, hidratePokemons, getPokemons } = props;
 
   useEffect(() => {
-    console.log("filter", filter)
     if (pokemonsServerStatus != NETSTATUS.FETCH && pokemonsServerStatus != NETSTATUS.FETCHING) hidratePokemons();
     else if(filter) getPokemons(filter); 
   }, []);
